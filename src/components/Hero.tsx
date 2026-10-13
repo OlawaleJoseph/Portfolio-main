@@ -1,5 +1,5 @@
-import Link from "next/link";
 import type { Profile } from "@/lib/types";
+import { SectionLink } from "./SectionLink";
 import { Hero3D } from "./three/Hero3D";
 import styles from "./Hero.module.css";
 
@@ -17,12 +17,12 @@ export function Hero({ profile }: { profile: Profile }) {
       </h1>
       <p className={styles.tagline}>{profile.tagline}</p>
       <div className={styles.cta}>
-        <Link href="#work" className="btn">
+        <SectionLink href="#work" className="btn">
           View clients
-        </Link>
-        <Link href="#contact" className="btn btn-ghost">
+        </SectionLink>
+        <SectionLink href="#contact" className="btn btn-ghost">
           Get in touch
-        </Link>
+        </SectionLink>
       </div>
       <dl className={styles.stats}>
         {profile.stats.map((s) => (

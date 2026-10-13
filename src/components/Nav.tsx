@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { SectionLink } from "./SectionLink";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Nav.module.css";
 
+// "/" prefix keeps these working from other pages (e.g. 404).
 const links = [
   { href: "/#work", label: "Work" },
   { href: "/#experience", label: "Experience" },
@@ -46,14 +48,14 @@ export function Nav({ initials }: { initials: string }) {
 
         <nav className={styles.links} aria-label="Primary">
           {links.slice(0, 3).map((l) => (
-            <Link key={l.href} href={l.href} className={styles.link}>
+            <SectionLink key={l.href} href={l.href} className={styles.link}>
               {l.label}
-            </Link>
+            </SectionLink>
           ))}
           <ThemeToggle />
-          <Link href="/#contact" className="btn btn-small">
+          <SectionLink href="/#contact" className="btn btn-small">
             Let&apos;s talk
-          </Link>
+          </SectionLink>
           <button
             type="button"
             className={styles.burger}
@@ -74,9 +76,9 @@ export function Nav({ initials }: { initials: string }) {
           <ul>
             {links.map((l, i) => (
               <li key={l.href} style={{ transitionDelay: open ? `${80 + i * 50}ms` : "0ms" }}>
-                <Link href={l.href} onClick={close}>
+                <SectionLink href={l.href} onClick={close}>
                   {l.label}
-                </Link>
+                </SectionLink>
               </li>
             ))}
           </ul>
