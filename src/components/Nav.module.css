@@ -1,0 +1,62 @@
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px max(24px, calc((100% - 1200px) / 2));
+  padding-top: max(14px, env(safe-area-inset-top));
+  border-bottom: 1px solid transparent;
+  transition: background 0.3s, border-color 0.3s;
+}
+.scrolled {
+  background: var(--nav-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-color: var(--line);
+}
+.logo {
+  font-family: var(--serif); font-size: 22px; width: 44px; height: 44px;
+  display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%;
+}
+.links { display: flex; align-items: center; gap: 24px; font-size: 15px; }
+.link { color: var(--muted); transition: color 0.2s; }
+.link:hover { color: var(--text); }
+
+/* Hamburger (mobile only) */
+.burger {
+  display: none; width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid var(--line); background: transparent; cursor: pointer;
+  flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+}
+.bar { width: 16px; height: 1.5px; background: var(--text); border-radius: 2px; transition: transform 0.3s var(--ease-out); }
+.barOpen:first-child { transform: translateY(3.25px) rotate(45deg); }
+.barOpen:last-child { transform: translateY(-3.25px) rotate(-45deg); }
+
+/* Full-screen mobile menu */
+.menu {
+  position: fixed; inset: 0; z-index: 49; /* just under .nav */
+  display: flex; align-items: flex-end;
+  padding: 120px 24px max(48px, env(safe-area-inset-bottom));
+  background: var(--bg);
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+.menuOpen { opacity: 1; visibility: visible; }
+.menu ul { display: grid; gap: 4px; }
+.menu li {
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 0.4s, transform 0.4s var(--ease-out);
+}
+.menuOpen li { opacity: 1; transform: none; }
+.menu a {
+  display: block; padding-block: 6px;
+  font-family: var(--serif); font-size: clamp(48px, 14vw, 72px); line-height: 1.05;
+}
+.menu a:active { color: var(--accent-text); }
+
+@media (max-width: 860px) {
+  .link { display: none; }
+  .burger { display: inline-flex; }
+  .links { gap: 10px; }
+}
+@media (min-width: 861px) {
+  .menu { display: none; }
+}

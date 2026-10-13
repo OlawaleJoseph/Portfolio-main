@@ -1,0 +1,48 @@
+.card { animation: rise 0.5s var(--ease-out) both; perspective: 900px; }
+
+.inner {
+  position: relative; display: flex; flex-direction: column; height: 100%;
+  padding: 22px; border-radius: var(--radius);
+  background: var(--surface); border: 1px solid var(--line); overflow: hidden;
+  transition: transform 0.35s var(--ease-out), border-color 0.35s;
+}
+.inner::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; opacity: 0;
+  background: radial-gradient(360px circle at var(--mx, 0%) var(--my, 0%), color-mix(in srgb, var(--card-accent) 26%, transparent), transparent 60%);
+  transition: opacity 0.4s;
+}
+.inner > * { position: relative; z-index: 1; }
+.linked:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--card-accent) 50%, var(--line)); }
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .inner { transition: transform 0.2s var(--ease-out), border-color 0.35s; }
+  .linked:hover { transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateZ(10px); }
+}
+.linked:hover::before { opacity: 1; }
+
+.top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 28px; }
+.logo {
+  width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center;
+  font-family: var(--serif); font-size: 22px; color: var(--on-accent); background: var(--card-accent);
+}
+.arrow {
+  font-size: 18px; color: var(--muted);
+  transition: color 0.3s, transform 0.3s var(--ease-out);
+}
+.linked:hover .arrow { color: var(--text); transform: translate(2px, -2px); }
+
+.name { font-family: var(--serif); font-weight: 400; font-size: 28px; line-height: 1.1; }
+.meta { font-size: 13px; color: var(--muted); margin-top: 4px; }
+.summary { color: var(--body); margin-top: 14px; font-size: 15px; }
+.result { margin-top: 12px; font-weight: 600; font-size: 14px; color: var(--card-accent); }
+.result::before { content: "↗ "; }
+.badges { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: auto; padding-top: 20px; }
+
+@media (max-width: 600px) {
+  .inner { padding: 16px; border-radius: 16px; }
+  .top { margin-bottom: 18px; }
+  .logo { width: 38px; height: 38px; border-radius: 11px; font-size: 18px; }
+  .name { font-size: 21px; }
+  .meta { font-size: 12px; }
+  .badges { padding-top: 14px; }
+}

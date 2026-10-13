@@ -1,0 +1,5 @@
+.badge {
+  font-size: 12px; font-weight: 600; padding: 5px 11px; border-radius: 999px; letter-spacing: 0.02em;
+}
+.shopify { color: var(--shopify-text); background: rgba(149, 191, 71, 0.12); border: 1px solid rgba(149, 191, 71, 0.3); }
+.other { color: var(--custom-text); background: rgba(111, 168, 255, 0.1); border: 1px solid rgba(111, 168, 255, 0.28); }

@@ -1,0 +1,44 @@
+.layout { display: grid; grid-template-columns: 1fr 360px; gap: 64px; align-items: start; }
+
+.timeline { position: relative; padding-left: 32px; }
+.timeline::before {
+  content: ""; position: absolute; left: 5px; top: 8px; bottom: 8px; width: 1px; background: var(--line);
+}
+.role { position: relative; padding-bottom: 48px; }
+.role:last-child { padding-bottom: 0; }
+.role::before {
+  content: ""; position: absolute; left: -32px; top: 7px;
+  width: 11px; height: 11px; border-radius: 50%;
+  background: var(--bg); border: 2px solid var(--muted);
+}
+.role:first-child::before { border-color: var(--accent); background: var(--accent); }
+
+.period { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.title { font-family: var(--serif); font-weight: 400; font-size: 32px; line-height: 1.15; margin-top: 6px; }
+.company { color: var(--muted); }
+.highlights { margin-top: 16px; display: grid; gap: 10px; color: var(--body); font-size: 15px; }
+.highlights li { position: relative; padding-left: 20px; }
+.highlights li::before { content: "—"; position: absolute; left: 0; color: var(--muted); }
+.stack { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+
+.skills {
+  position: sticky; top: 100px;
+  padding: 32px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line);
+}
+.skillsTitle { font-family: var(--serif); font-weight: 400; font-size: 28px; margin-bottom: 8px; }
+.group { padding-top: 20px; }
+.group + .group { margin-top: 20px; border-top: 1px solid var(--line); }
+.groupLabel { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-text); margin-bottom: 10px; }
+.groupItems { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 15px; color: var(--body); }
+
+@media (max-width: 960px) {
+  .layout { grid-template-columns: 1fr; gap: 48px; }
+  .skills { position: static; }
+}
+@media (max-width: 600px) {
+  .timeline { padding-left: 24px; }
+  .role::before { left: -24px; }
+  .title { font-size: 26px; }
+  .highlights { font-size: 14.5px; }
+  .skills { padding: 24px; }
+}

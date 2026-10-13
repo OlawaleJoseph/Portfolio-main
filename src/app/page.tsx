@@ -1,69 +1,48 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import { ClientGrid } from "@/components/ClientGrid";
+import { Contact } from "@/components/Contact";
+import { Experience } from "@/components/Experience";
+import { Hero } from "@/components/Hero";
+import { Marquee } from "@/components/Marquee";
+import { SectionHeading } from "@/components/SectionHeading";
+import { Services } from "@/components/Services";
+import { Testimonials } from "@/components/Testimonials";
+import { experience, skills } from "@/content/experience";
+import { profile } from "@/content/profile";
+import { services, testimonials } from "@/content/services";
+import { getClients } from "@/lib/content";
 
 export default function Home() {
+  const clients = getClients();
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.tsx</code> file.
-          </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <>
+      <Hero profile={profile} />
+      <Marquee clients={clients} />
+
+      <section id="work" className="container section reveal">
+        <ClientGrid clients={clients} />
+      </section>
+
+      <section id="experience" className="container section reveal">
+        <SectionHeading eyebrow="5+ years" title="Experience" />
+        <Experience roles={experience} skills={skills} />
+      </section>
+
+      <section id="services" className="container section reveal">
+        <SectionHeading eyebrow="What I do" title="Services" />
+        <Services services={services} />
+      </section>
+
+      {testimonials.length > 0 && (
+        <section id="testimonials" className="container section reveal">
+          <SectionHeading eyebrow="Kind words" title="What clients say" />
+          <Testimonials items={testimonials} />
+        </section>
+      )}
+
+      <section id="contact" className="container section reveal">
+        <Contact profile={profile} />
+      </section>
+    </>
   );
 }

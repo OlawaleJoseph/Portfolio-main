@@ -1,0 +1,17 @@
+.contact { text-align: center; padding-block: 40px 60px; }
+.title { font-size: clamp(48px, 9vw, 120px); }
+.title em { color: var(--accent-text); }
+.email {
+  display: inline-block; overflow-wrap: anywhere; margin-top: 40px; font-size: clamp(20px, 3vw, 32px);
+  border-bottom: 1px solid var(--line); padding-bottom: 4px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.email:hover { color: var(--accent-text); border-color: var(--accent-text); }
+.socials { display: flex; justify-content: center; flex-wrap: wrap; gap: 28px; margin-top: 36px; color: var(--muted); }
+.socials a:hover { color: var(--text); }
+
+@media (max-width: 600px) {
+  .contact { padding-block: 20px 40px; }
+  .socials { gap: 12px 24px; }
+  .socials a { display: inline-block; padding-block: 10px; }
+}

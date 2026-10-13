@@ -1,0 +1,11 @@
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+.quote { padding: 40px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); }
+.quote blockquote { font-family: var(--serif); font-size: 28px; line-height: 1.25; }
+.quote figcaption { margin-top: 24px; color: var(--muted); font-size: 14px; }
+.quote strong { color: var(--text); font-weight: 600; }
+
+@media (max-width: 480px) {
+  .grid { grid-template-columns: 1fr; }
+  .quote { padding: 28px; }
+  .quote blockquote { font-size: 24px; }
+}

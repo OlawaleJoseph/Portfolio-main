@@ -1,0 +1,61 @@
+.hero { padding-top: 180px; padding-bottom: 60px; position: relative; }
+.hero::before {
+  content: ""; position: absolute; z-index: -1; top: 60px; right: -10%;
+  width: 600px; height: 600px; border-radius: 50%;
+  background: radial-gradient(circle, var(--glow), transparent 65%);
+  filter: blur(20px);
+}
+
+.status {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 14px; color: var(--muted);
+  padding: 6px 14px 6px 12px; border: 1px solid var(--line); border-radius: 999px;
+  margin-bottom: 32px;
+}
+.status::before {
+  content: ""; width: 8px; height: 8px; border-radius: 50%; background: #4ade80;
+  animation: pulse 2s infinite;
+}
+.busy::before { background: #f59e0b; animation: none; }
+
+.title {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(56px, 10vw, 140px); line-height: 0.92; letter-spacing: -0.02em;
+  animation: rise 0.8s var(--ease-out) both;
+}
+.title em { color: var(--accent-text); }
+
+.tagline {
+  max-width: 600px; margin-top: 32px; font-size: 19px; color: var(--muted);
+  animation: rise 0.8s 0.1s var(--ease-out) both;
+}
+.cta {
+  display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px;
+  animation: rise 0.8s 0.2s var(--ease-out) both;
+}
+
+.stats {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  margin-top: 90px; border-top: 1px solid var(--line);
+}
+.stat { display: flex; flex-direction: column-reverse; justify-content: flex-end; padding-top: 28px; }
+.stat + .stat { padding-left: 28px; border-left: 1px solid var(--line); }
+.stat dd { font-family: var(--serif); font-size: 52px; line-height: 1; }
+.stat dt { font-size: 14px; color: var(--muted); }
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.6); }
+  70%, 100% { box-shadow: 0 0 0 8px rgba(74, 222, 128, 0); }
+}
+
+@media (max-width: 860px) {
+  .hero { padding-top: 130px; }
+  .tagline { font-size: 17px; margin-top: 24px; }
+  .stats { margin-top: 64px; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .stat:nth-child(3) { padding-left: 0; border-left: 0; }
+  .stat:nth-child(n + 3) { border-top: 1px solid var(--line); margin-top: 28px; }
+}
+@media (max-width: 480px) {
+  .stat dd { font-size: 40px; }
+}
