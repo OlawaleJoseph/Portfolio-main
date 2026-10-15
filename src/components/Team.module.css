@@ -1,0 +1,41 @@
+.team { display: flex; flex-wrap: wrap; gap: 56px; }
+
+.profile { flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
+.photo {
+  position: relative; overflow: hidden;
+  width: 100%; max-width: 360px; aspect-ratio: 4 / 5;
+  display: grid; place-items: center;
+  border-radius: var(--radius); background: var(--placeholder); border: 1px dashed var(--placeholder-line);
+  font-family: var(--display); font-weight: 700; font-size: 72px; letter-spacing: -0.04em; color: var(--muted);
+}
+.photo img { object-fit: cover; }
+.socials { display: flex; gap: 20px; margin-top: 12px; font-size: 15px; font-weight: 500; }
+.socials a { display: inline-block; padding-block: 8px; border-bottom: 1px solid var(--line); }
+.socials a:hover { color: var(--accent-text); border-color: currentColor; }
+.name { font-family: var(--display); font-weight: 700; font-size: 34px; line-height: 1.2; letter-spacing: -0.02em; }
+
+.body { flex: 999 1 560px; min-width: 0; }
+.intro {
+  margin-bottom: 40px;
+  font-family: var(--display); font-weight: 500;
+  font-size: clamp(24px, 2.6vw, 32px); line-height: 1.3; letter-spacing: -0.015em;
+}
+.label, .groupLabel {
+  font-family: var(--mono); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+}
+.label { margin-bottom: 4px; font-size: 13px; }
+
+.role { display: flex; flex-wrap: wrap; gap: 4px 24px; padding-block: 20px; border-bottom: 1px solid var(--line); }
+.period { flex: 0 0 170px; font-family: var(--mono); font-size: 14px; color: var(--muted); }
+.detail { flex: 1 1 300px; }
+.detail strong { font-weight: 600; }
+
+.brands {
+  margin-top: 40px; padding: 28px;
+  border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line);
+}
+.brandsTitle { margin-bottom: 8px; font-size: 16px; font-weight: 600; }
+.disclaimer { margin-bottom: 18px; font-size: 15px; }
+.group + .group { margin-top: 16px; }
+.groupLabel { margin-bottom: 6px; font-size: 12px; }
+.list { font-size: 15px; line-height: 1.8; }

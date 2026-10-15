@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
-import { profile } from "@/content/profile";
+import { site } from "@/content/site";
 
-export const alt = `${profile.name} — ${profile.role}`;
+export const alt = `${site.name} — ${site.tagline}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -14,17 +14,18 @@ export default function Image() {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "flex-end",
+          justifyContent: "space-between",
           padding: 80,
-          background: "radial-gradient(circle at 85% 15%, rgba(216,255,92,0.25), #0c0c0d 55%)",
-          color: "#f2f0eb",
+          background: "#101814",
+          color: "#e9eee9",
         }}
       >
-        <div style={{ fontSize: 88, lineHeight: 1, letterSpacing: -2 }}>{profile.name}</div>
-        <div style={{ fontSize: 56, color: "#d8ff5c", marginTop: 16 }}>{profile.role}</div>
-        <div style={{ fontSize: 26, color: "#9a978f", marginTop: 36 }}>
-          React · Next.js · Node.js · Shopify
+        <div style={{ display: "flex", alignItems: "center", gap: 14, fontSize: 26, color: "#9aa59e" }}>
+          <div style={{ width: 14, height: 14, borderRadius: 7, background: "#9fd9b5" }} />
+          {site.name} · Software engineering studio
         </div>
+        <div style={{ fontSize: 76, lineHeight: 1.05, letterSpacing: -2, maxWidth: 980 }}>{site.tagline}</div>
+        <div style={{ fontSize: 26, color: "#9fd9b5" }}>Shopify Plus · Headless commerce · React / Next.js</div>
       </div>
     ),
     size,

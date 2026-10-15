@@ -1,4 +1,6 @@
+/* Continues the dark contact band above it. */
+.band { background: var(--panel); color: var(--panel-muted); }
 .footer {
-  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
-  padding-block: 28px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted);
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px;
+  padding-block: 24px 32px; border-top: 1px solid var(--panel-line); font-size: 14px;
 }

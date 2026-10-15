@@ -1,58 +1,52 @@
-export type ClientType = "shopify" | "other";
-
-export interface Metric {
-  value: string;
-  label: string;
-}
-
-export interface Client {
-  slug: string;
-  name: string;
-  type: ClientType;
-  /** Headless build (e.g. Hydrogen / Next.js on the Storefront API). */
-  headless?: boolean;
-  industry?: string;
-  country?: string;
-  year?: number;
-  summary?: string;
-  result?: string;
-  tags?: string[];
-  /** Live site; makes the card a link. */
-  url?: string;
-}
-
-export interface Role {
-  title: string;
-  company: string;
-  period: string;
-  location?: string;
-  highlights: string[];
-  stack: string[];
-}
-
-export interface SkillGroup {
-  label: string;
-  items: string[];
-}
+export type ServiceIcon = "bag" | "layers" | "layout" | "chart";
 
 export interface Service {
+  icon: ServiceIcon;
   title: string;
   body: string;
 }
 
-export interface Testimonial {
-  quote: string;
-  author: string;
-  company: string;
+export interface Step {
+  title: string;
+  body: string;
 }
 
-export interface Profile {
+export interface StackGroup {
+  label: string;
+  items: string[];
+}
+
+export interface Role {
+  period: string;
+  title: string;
+  /** Shown after the title, e.g. "(contract)". */
+  note?: string;
+  body: string;
+}
+
+export interface BrandGroup {
+  label: string;
+  brands: string[];
+}
+
+export interface Site {
   name: string;
-  role: string;
   tagline: string;
+  description: string;
   location: string;
   email: string;
   available: boolean;
-  socials: { label: string; url: string }[];
-  stats: Metric[];
+  /** Key/value rows in the hero "studio.config" card. */
+  glance: { key: string; value: string }[];
+  founder: {
+    name: string;
+    role: string;
+    /** Personal profiles; shown with the founder, not as company channels. */
+    socials: { label: string; url: string }[];
+    /** Path under /public; a placeholder renders while unset. */
+    photo?: string;
+    intro: string;
+    roles: Role[];
+    brands: { title: string; disclaimer: string; groups: BrandGroup[] };
+  };
 }

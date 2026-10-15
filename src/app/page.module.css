@@ -1,0 +1,22 @@
+.servicesHead {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px;
+  margin-bottom: 56px;
+}
+.servicesIntro { max-width: 640px; }
+.servicesNote { max-width: 420px; }
+
+.approachTitle { max-width: 760px; margin-bottom: 56px; }
+
+.stack { display: flex; flex-wrap: wrap; gap: 48px; }
+.stackIntro { flex: 1 1 320px; min-width: 0; }
+.stackIntro p:last-child { max-width: 380px; }
+.stackTitle { margin-bottom: 20px; }
+.stackGroups { flex: 999 1 560px; min-width: 0; }
+
+/* Ink band; the footer continues it. */
+.contact { background: var(--panel); color: var(--panel-text); }
+.contactInner { padding-block: 112px 96px; }
+
+@media (max-width: 720px) {
+  .contactInner { padding-block: 80px 72px; }
+}

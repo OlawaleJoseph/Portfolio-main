@@ -1,0 +1,6 @@
+.logo { display: inline-flex; align-items: center; }
+.logo img { display: block; height: 30px; width: auto; }
+
+.dark { display: none !important; }
+:global([data-theme="dark"]) .light { display: none !important; }
+:global([data-theme="dark"]) .dark { display: block !important; }

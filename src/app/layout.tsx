@@ -1,43 +1,54 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Inter } from "next/font/google";
+import { Bricolage_Grotesque, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
-import { profile } from "@/content/profile";
-import { initials, siteUrl } from "@/lib/content";
+import { site } from "@/content/site";
+import { siteUrl } from "@/lib/content";
 import { themeScript } from "@/lib/theme-script";
 import "./globals.css";
 
-const serif = Instrument_Serif({
-  variable: "--font-serif",
-  weight: "400",
-  style: ["normal", "italic"],
+const display = Bricolage_Grotesque({
+  variable: "--font-display",
+  weight: ["500", "700"],
   subsets: ["latin"],
 });
 
-const sans = Inter({
+const sans = IBM_Plex_Sans({
   variable: "--font-sans",
+  weight: ["400", "500", "600"],
   subsets: ["latin"],
 });
 
-const title = `${profile.name} — ${profile.role}`;
+const mono = IBM_Plex_Mono({
+  variable: "--font-mono",
+  weight: ["400", "500"],
+  subsets: ["latin"],
+});
+
+const title = `${site.name} — Commerce and product engineering`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: title, template: `%s · ${profile.name}` },
-  description: profile.tagline,
-  openGraph: { title, description: profile.tagline, type: "website" },
-  twitter: { card: "summary_large_image", title, description: profile.tagline },
+  title: { default: title, template: `%s · ${site.name}` },
+  description: site.description,
+  openGraph: { title, description: site.description, type: "website", siteName: site.name },
+  twitter: { card: "summary_large_image", title, description: site.description },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     // data-theme is corrected by the inline script before paint, hence suppressHydrationWarning.
-    <html lang="en" data-theme="dark" className={`${serif.variable} ${sans.variable}`} suppressHydrationWarning>
+    <html
+      lang="en"
+      data-theme="light"
+      className={`${display.variable} ${sans.variable} ${mono.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body>
-        <Nav initials={initials(profile.name)} />
+        <Nav />
         <main id="top">{children}</main>
         <Footer />
       </body>

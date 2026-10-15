@@ -1,25 +1,20 @@
-import type { Profile } from "@/lib/types";
+import type { Site } from "@/lib/types";
 import styles from "./Contact.module.css";
 
-export function Contact({ profile }: { profile: Profile }) {
+export function Contact({ site }: { site: Site }) {
   return (
-    <div className={styles.contact}>
-      <p className="eyebrow">Have a project or role in mind?</p>
-      <h2 className={`heading ${styles.title}`}>
-        Let&apos;s build something <em>great</em>.
-      </h2>
-      <a className={styles.email} href={`mailto:${profile.email}`}>
-        {profile.email}
-      </a>
-      <ul className={styles.socials}>
-        {profile.socials.map((s) => (
-          <li key={s.label}>
-            <a href={s.url} target="_blank" rel="noopener noreferrer">
-              {s.label} ↗
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <p className={`eyebrow ${styles.eyebrow}`}>05 — Contact</p>
+      <h2 className={styles.title}>Have a storefront or product to build?</h2>
+      <p className={styles.lede}>
+        Tell us what you&apos;re planning. You&apos;ll get a reply within two working days with next steps and a
+        rough estimate.
+      </p>
+      <div className={styles.actions}>
+        <a href={`mailto:${site.email}`} className={`btn ${styles.primary}`}>
+          Email us
+        </a>
+      </div>
+    </>
   );
 }

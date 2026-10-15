@@ -1,0 +1,41 @@
+.hero {
+  display: flex; flex-wrap: wrap; align-items: flex-end; gap: 56px;
+  padding-block: 96px 88px;
+}
+.copy { flex: 999 1 560px; min-width: 0; animation: rise 0.7s var(--ease-out) both; }
+
+.kicker {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 28px;
+  font-family: var(--mono); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted);
+}
+.dot { width: 8px; height: 8px; flex-shrink: 0; border-radius: 50%; background: var(--accent); }
+
+.title {
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(44px, 6.4vw, 88px); line-height: 1; letter-spacing: -0.035em;
+}
+.lede { margin-top: 32px; max-width: 620px; font-size: 20px; color: var(--body); }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
+
+.card {
+  flex: 1 1 340px; min-width: 0;
+  padding: 28px; border-radius: var(--radius);
+  background: var(--panel); color: var(--panel-text); border: 1px solid var(--panel-edge);
+  font-family: var(--mono); font-size: 14px; line-height: 1.5;
+  animation: rise 0.7s 0.15s var(--ease-out) both;
+}
+.cardHead {
+  display: flex; justify-content: space-between; gap: 12px;
+  padding-bottom: 16px; border-bottom: 1px solid var(--panel-line);
+  font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--panel-muted);
+}
+.status { color: var(--panel-accent); }
+.glance { display: grid; gap: 14px; padding-top: 18px; }
+.row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: 16px; }
+.row dt { color: var(--panel-muted); }
+
+@media (max-width: 720px) {
+  .hero { padding-block: 64px 72px; gap: 40px; }
+  .lede { font-size: 18px; }
+}

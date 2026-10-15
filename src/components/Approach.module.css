@@ -1,0 +1,7 @@
+.steps {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  border-top: 2px solid var(--text);
+}
+.step { display: flex; flex-direction: column; gap: 10px; padding: 28px 28px 8px 0; }
+.num { font-family: var(--mono); font-size: 14px; color: var(--muted); }
+.title { font-family: var(--display); font-weight: 700; font-size: 26px; line-height: 1.2; }

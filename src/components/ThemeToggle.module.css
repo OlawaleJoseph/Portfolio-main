@@ -9,6 +9,6 @@
 .toggle svg { grid-area: 1 / 1; }
 
 /* Show the icon for the theme you'd switch TO. */
-.moon { display: none; }
-:global([data-theme="light"]) .sun { display: none; }
-:global([data-theme="light"]) .moon { display: block; }
+.sun { display: none; }
+:global([data-theme="dark"]) .sun { display: block; }
+:global([data-theme="dark"]) .moon { display: none; }
