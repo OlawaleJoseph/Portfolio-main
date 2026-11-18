@@ -2,7 +2,7 @@
 .card {
   display: flex; flex-direction: column; gap: 14px;
   padding: 32px; border-radius: var(--radius);
-  background: var(--bg); border: 1px solid var(--line);
+  background: var(--surface); border: 1px solid var(--line);
   transition: border-color 0.2s, transform 0.2s var(--ease-out);
 }
 .card:hover { border-color: var(--accent-text); transform: translateY(-2px); }

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { site } from "@/content/site";
 import styles from "./Footer.module.css";
 
@@ -16,7 +17,10 @@ export async function Footer() {
           <span>
             © {year} {site.name}. All rights reserved.
           </span>
-          <span>{site.location} · Working remotely worldwide</span>
+          <span className={styles.links}>
+            <span>{site.location} · Working with brands in the US, UK, Canada &amp; Australia</span>
+            <Link href="/privacy">Privacy</Link>
+          </span>
         </div>
       </div>
     </footer>

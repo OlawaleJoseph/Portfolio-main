@@ -1,0 +1,20 @@
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-bottom: 64px; }
+.col { padding: 28px; border-radius: var(--radius); border: 1px solid var(--line); }
+.oursCol { background: var(--bg); border-color: var(--accent-text); }
+.head {
+  margin-bottom: 8px;
+  font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted);
+}
+.oursCol .head { color: var(--accent-text); }
+
+.usual, .ours { display: flex; gap: 12px; padding-block: 14px; border-bottom: 1px solid var(--line); }
+.usual:last-child, .ours:last-child { border-bottom: 0; }
+.usual { color: var(--muted); }
+.usual::before { content: "×"; flex-shrink: 0; font-family: var(--mono); }
+.ours { font-weight: 500; }
+.ours::before { content: "✓"; flex-shrink: 0; font-family: var(--mono); color: var(--accent-text); }
+
+@media (max-width: 720px) {
+  .grid { grid-template-columns: minmax(0, 1fr); }
+}

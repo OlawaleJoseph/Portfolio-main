@@ -11,6 +11,12 @@ export interface Step {
   body: string;
 }
 
+/** One row of the "usual agency route vs. how we work" comparison. */
+export interface Contrast {
+  usual: string;
+  ours: string;
+}
+
 export interface StackGroup {
   label: string;
   items: string[];
@@ -24,15 +30,19 @@ export interface Role {
   body: string;
 }
 
-export interface BrandGroup {
-  label: string;
-  brands: string[];
-}
-
 export interface Site {
   name: string;
-  tagline: string;
+  /** Hero headlines; more than one rotates. */
+  headlines: string[];
   description: string;
+  /** One-line note under the hero buttons. */
+  cutoffNote: string;
+  /** Short line above the headline. */
+  kicker: string;
+  /** Calendar link (e.g. Cal.com). While unset, "Book a call" scrolls to the contact form. */
+  bookingUrl?: string;
+  /** Promise shown next to forms, e.g. "the same working day". */
+  replyTime: string;
   location: string;
   email: string;
   available: boolean;
@@ -47,6 +57,5 @@ export interface Site {
     photo?: string;
     intro: string;
     roles: Role[];
-    brands: { title: string; disclaimer: string; groups: BrandGroup[] };
   };
 }

@@ -1,19 +1,28 @@
-import type { Service, Site, StackGroup, Step } from "@/lib/types";
+import type { Contrast, Service, Site, StackGroup, Step } from "@/lib/types";
 
 export const site: Site = {
   name: "Grajol",
-  tagline: "Commerce and product engineering, built to stay fast.",
+  headlines: [
+    "Your Shopify theme is costing you more than it should. We'll show you where.",
+    "Some of your Shopify apps may stop loading on March 1, 2027. Find out which.",
+  ],
   description:
-    "Grajol designs and builds Shopify Plus storefronts, headless commerce and React / Next.js products — owning the work from architecture to launch, and staying on after it.",
+    "We read your store's code before we quote a thing, and the engineer who finds the problem is the one who fixes it. No account managers, no hand-offs.",
+  cutoffNote:
+    "Shopify stops loading storefront script tags on March 1, 2027. Apps that still rely on them will quietly stop working.",
+  kicker: "Shopify engineering studio · For brands in the US, UK, Canada & Australia",
+  // Add your Cal.com (or similar) link here to make "Book a call" open a calendar.
+  bookingUrl: undefined,
+  replyTime: "the same working day",
   location: "Lagos, Nigeria",
   email: "olawaleadedeko@grajol.com",
   available: true,
   glance: [
-    { key: "focus", value: "Shopify Plus, headless, React / Next.js" },
+    { key: "focus", value: "Shopify themes, apps, CRO & Plus" },
     { key: "base", value: "Lagos, Nigeria · remote" },
-    { key: "timezone", value: "WAT (UTC+1) — same working day as Europe" },
+    { key: "hours", value: "WAT (UTC+1) · overlaps US mornings and the full UK day" },
     { key: "experience", value: "5+ years in production" },
-    { key: "engagements", value: "Projects · retainers · team extension" },
+    { key: "replies", value: "Same working day" },
   ],
   founder: {
     name: "Olawale Adedeko",
@@ -23,7 +32,7 @@ export const site: Site = {
       { label: "GitHub", url: "https://github.com/OlawaleJoseph" },
     ],
     intro:
-      "Grajol is led by a senior engineer with over five years of production experience — from banking APIs to high-traffic Shopify Plus storefronts. Every project gets that experience directly, not through layers of account management.",
+      "Grajol is led by a senior engineer with over five years of production experience, from banking APIs to high-traffic Shopify Plus storefronts. You work with that engineer directly, not through layers of account management.",
     roles: [
       {
         period: "2022 — present",
@@ -47,59 +56,57 @@ export const site: Site = {
         body: "REST APIs and production support for a banking application.",
       },
     ],
-    brands: {
-      title: "Brands worked on while contracted to Latori GmbH",
-      disclaimer:
-        "These are Latori GmbH's clients, not Grajol's. Olawale contributed to their projects as a contracted engineer for the agency; they are listed only to show the kind of work he has delivered.",
-      groups: [
-        {
-          label: "Shopify & headless",
-          brands: [
-            "Shape Republic", "BoardsAndMore", "LFDY", "Atletica", "Lamy", "Snushus", "Oh April", "BOC",
-            "Ava & May", "OOIA", "Neuland", "Bodyshake", "Spermidine", "Ivy & Oak", "Overkill", "Vogue",
-            "Khujo", "Vitafy", "Markenkoffer", "Wurtec",
-          ],
-        },
-        {
-          label: "Custom web",
-          brands: [
-            "MDM", "Mister Spex", "Sportspar", "ISM", "Hauhinco", "Allmedica", "Hashtag You", "Cramer",
-            "RIAB", "Sennheiser",
-          ],
-        },
-      ],
-    },
   },
 };
 
 export const services: Service[] = [
   {
-    icon: "bag",
-    title: "Shopify & Shopify Plus",
-    body: "Custom themes and sections, checkout extensions, Shopify Functions for discount and delivery logic, and private apps.",
+    icon: "layout",
+    title: "Theme rebuilds",
+    body: "Slow, patched-together themes rebuilt on Online Store 2.0: clean sections your team can edit, and pages that load fast on a phone.",
   },
   {
     icon: "layers",
-    title: "Headless commerce",
-    body: "Hydrogen or Next.js on the Storefront API — for brands that have outgrown a theme and need full control of speed and experience.",
-  },
-  {
-    icon: "layout",
-    title: "Web applications",
-    body: "React and Next.js dashboards, customer portals and SaaS products, with Node.js or Rails behind them.",
+    title: "App & script-tag cleanup",
+    body: "We find the apps and leftover scripts weighing your store down, move what you keep onto app embeds before March 1, 2027, and remove the rest.",
   },
   {
     icon: "chart",
-    title: "Technical leadership",
-    body: "Architecture reviews, Core Web Vitals and performance audits, code review and mentoring for in-house teams.",
+    title: "Conversion optimisation",
+    body: "Product, collection and cart pages fixed where shoppers actually drop off, with speed and Core Web Vitals treated as part of conversion.",
+  },
+  {
+    icon: "bag",
+    title: "Shopify Plus upgrades",
+    body: "Checkout extensibility, Shopify Functions for discount and delivery logic, and B2B or multi-market setup, whether you're moving to Plus or already on it.",
   },
 ];
 
+/** Shown under the service cards. */
+export const servicesSupporting =
+  "Outgrown a theme? We also build headless storefronts on Hydrogen or Next.js, and React apps for what Shopify can't do.";
+
+/** What the free script-tag checkup covers. */
+export const checkupItems: string[] = [
+  "Every script tag your storefront loads, and which app put it there",
+  "Which of those apps already offer an app-embed replacement, and which don't",
+  "Leftover code from apps you've already uninstalled",
+  "What each script costs in load time on mobile",
+  "Tracking that should move to web pixels before the cutoff",
+];
+
+export const contrast: Contrast[] = [
+  { usual: "Your first call is with a salesperson", ours: "Your first call is with the engineer who'll do the work" },
+  { usual: "A quote written before anyone opens your theme", ours: "We read your code before we quote" },
+  { usual: "Your brief is handed to a developer you never meet", ours: "The person who finds the problem fixes it" },
+  { usual: "Updates relayed through an account manager", ours: "Questions answered directly, the same working day" },
+];
+
 export const approach: Step[] = [
-  { title: "Scope", body: "We turn goals into scoped, estimated tickets, so you know what ships and when before work starts." },
-  { title: "Build", body: "Typed, tested code in short cycles, with a preview link for every change and reviews on every merge." },
-  { title: "Ship", body: "CI pipelines, performance budgets and end-to-end tests keep launches quiet and storefronts fast." },
-  { title: "Support", body: "Retainers for ongoing features, monitoring and fixes, from engineers who already know your codebase." },
+  { title: "Read", body: "We go through your theme, apps and scripts first, so the quote is based on your actual code." },
+  { title: "Scope", body: "Findings become scoped, estimated tickets, so you know what ships and when before work starts." },
+  { title: "Fix", body: "Changes ship in short cycles on a preview theme, checked for speed before anything goes live." },
+  { title: "Support", body: "Retainers for ongoing features and fixes, from the engineer who already knows your store." },
 ];
 
 export const stack: StackGroup[] = [

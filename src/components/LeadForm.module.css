@@ -1,0 +1,57 @@
+.form {
+  --f-text: var(--text);
+  --f-muted: var(--muted);
+  --f-field: var(--surface);
+  --f-line: var(--line);
+  --f-focus: var(--accent-text);
+  --f-error: #b3400b;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px;
+  max-width: 720px;
+}
+.panel {
+  --f-text: var(--panel-text);
+  --f-muted: var(--panel-muted);
+  --f-field: color-mix(in srgb, var(--panel-text) 6%, transparent);
+  --f-line: var(--panel-border);
+  --f-focus: var(--panel-accent);
+  --f-error: #fdba74;
+}
+:global([data-theme="dark"]) .form { --f-error: #fdba74; }
+.panel :global(.btn) { background: var(--panel-accent); border-color: var(--panel-accent); color: var(--panel); }
+
+.row { display: grid; gap: 8px; min-width: 0; }
+.wide { grid-column: 1 / -1; }
+.row label { font-size: 15px; font-weight: 500; color: var(--f-text); }
+.row label span { font-weight: 400; color: var(--f-muted); }
+
+.row input, .row select, .row textarea {
+  width: 100%; min-height: 48px; padding: 12px 14px;
+  border: 1px solid var(--f-line); border-radius: 10px;
+  background: var(--f-field); color: var(--f-text);
+  font: inherit; font-size: 16px;
+}
+.row textarea { resize: vertical; }
+.row select option { color: #101814; background: #ffffff; }
+.row input:focus-visible, .row select:focus-visible, .row textarea:focus-visible {
+  outline: 2px solid var(--f-focus); outline-offset: 1px;
+}
+
+.submit { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+.submit :global(.btn):disabled { opacity: 0.6; cursor: progress; transform: none; }
+.small { font-size: 14px; color: var(--f-muted); }
+.small a { text-decoration: underline; text-underline-offset: 3px; }
+.error { color: var(--f-error); font-weight: 500; }
+
+.done {
+  max-width: 720px; padding: 24px; border-radius: var(--radius);
+  border: 1px solid var(--line); background: var(--surface); font-size: 18px;
+}
+.done a { text-decoration: underline; text-underline-offset: 3px; }
+.done.panel { border-color: var(--panel-border); background: transparent; color: var(--panel-text); }
+
+/* Off-screen rather than display:none so naive bots still fill it in. */
+.trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+
+@media (max-width: 600px) {
+  .form { grid-template-columns: minmax(0, 1fr); }
+}
