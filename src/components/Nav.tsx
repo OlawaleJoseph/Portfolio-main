@@ -9,10 +9,11 @@ import styles from "./Nav.module.css";
 
 // "/" prefix keeps these working from other pages (e.g. 404).
 const links = [
+  { href: "/#checkup", label: "Checkup" },
   { href: "/#services", label: "Services" },
   { href: "/#approach", label: "Approach" },
   { href: "/#stack", label: "Stack" },
-  { href: "/#team", label: "Team" },
+  { href: "/#team", label: "About" },
 ];
 
 export function Nav() {
@@ -46,9 +47,9 @@ export function Nav() {
                 {l.label}
               </SectionLink>
             ))}
-            <SectionLink href="/#contact" className={styles.cta} onClick={close}>
-              Start a project
-            </SectionLink>
+            <Link href="/checkup" className={styles.cta} onClick={close}>
+              Free checkup
+            </Link>
             <ThemeToggle />
             <button
               type="button"

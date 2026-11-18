@@ -26,14 +26,27 @@ const mono = IBM_Plex_Mono({
   subsets: ["latin"],
 });
 
-const title = `${site.name} — Commerce and product engineering`;
+const title = `${site.name} — Shopify theme, app & script-tag fixes`;
+const description =
+  "Slow Shopify theme? Apps that break when script tags stop loading on March 1, 2027? We read your store's code, show you what's costing you sales, and fix it.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: { default: title, template: `%s · ${site.name}` },
-  description: site.description,
-  openGraph: { title, description: site.description, type: "website", siteName: site.name },
-  twitter: { card: "summary_large_image", title, description: site.description },
+  description,
+  keywords: [
+    "Shopify developer",
+    "Shopify script tag deprecation",
+    "Shopify theme rebuild",
+    "Shopify speed optimisation",
+    "Shopify CRO",
+    "Shopify Plus upgrade",
+  ],
+  authors: [{ name: site.founder.name, url: siteUrl }],
+  creator: site.founder.name,
+  alternates: { canonical: "/" },
+  openGraph: { title, description, url: "/", type: "website", siteName: site.name, locale: "en_US" },
+  twitter: { card: "summary_large_image", title, description },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

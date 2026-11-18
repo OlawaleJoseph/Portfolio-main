@@ -4,3 +4,5 @@
   display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px;
   padding-block: 24px 32px; border-top: 1px solid var(--panel-line); font-size: 14px;
 }
+.links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.links a { color: var(--panel-text); text-decoration: underline; text-underline-offset: 3px; }

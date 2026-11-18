@@ -1,5 +1,8 @@
+import Link from "next/link";
 import type { Site } from "@/lib/types";
+import { Headlines } from "./Headlines";
 import { SectionLink } from "./SectionLink";
+import { TrackedLink } from "./TrackedLink";
 import styles from "./Hero.module.css";
 
 export function Hero({ site }: { site: Site }) {
@@ -8,18 +11,31 @@ export function Hero({ site }: { site: Site }) {
       <div className={styles.copy}>
         <p className={styles.kicker}>
           <span className={styles.dot} aria-hidden="true" />
-          Software engineering studio · Lagos, working worldwide
+          {site.kicker}
         </p>
-        <h1 className={styles.title}>{site.tagline}</h1>
+        <Headlines headlines={site.headlines} />
         <p className={styles.lede}>{site.description}</p>
         <div className={styles.actions}>
-          <SectionLink href="#contact" className="btn">
-            Book an intro call
-          </SectionLink>
-          <SectionLink href="#services" className="btn btn-ghost">
-            See what we do
-          </SectionLink>
+          <Link href="/checkup" className="btn">
+            Get my free script-tag checkup
+          </Link>
+          {site.bookingUrl ? (
+            <TrackedLink
+              event="booking_clicked"
+              href={site.bookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-ghost"
+            >
+              Book a call
+            </TrackedLink>
+          ) : (
+            <SectionLink href="#contact" className="btn btn-ghost">
+              Book a call
+            </SectionLink>
+          )}
         </div>
+        <p className={styles.note}>{site.cutoffNote}</p>
       </div>
 
       <aside className={styles.card} aria-label="Studio at a glance">

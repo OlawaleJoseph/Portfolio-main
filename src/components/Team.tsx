@@ -3,8 +3,6 @@ import type { Site } from "@/lib/types";
 import styles from "./Team.module.css";
 
 export function Team({ founder }: { founder: Site["founder"] }) {
-  const { brands } = founder;
-
   return (
     <div className={styles.team}>
       <div className={styles.profile}>
@@ -52,17 +50,6 @@ export function Team({ founder }: { founder: Site["founder"] }) {
             </li>
           ))}
         </ul>
-
-        <div className={styles.brands}>
-          <h3 className={styles.brandsTitle}>{brands.title}</h3>
-          <p className={`muted ${styles.disclaimer}`}>{brands.disclaimer}</p>
-          {brands.groups.map((g) => (
-            <div key={g.label} className={styles.group}>
-              <p className={styles.groupLabel}>{g.label}</p>
-              <p className={styles.list}>{g.brands.join(" · ")}</p>
-            </div>
-          ))}
-        </div>
       </div>
     </div>
   );

@@ -16,7 +16,7 @@
   --accent: #1e6b47;           /* fills: primary buttons, dots */
   --on-accent: #ffffff;        /* text on accent fills */
   --accent-text: #1e6b47;      /* accent used as text/strokes on --bg / --surface */
-  --cta: #101814;              /* nav "Start a project" pill */
+  --cta: #101814;              /* nav "Free checkup" pill */
   --on-cta: #f3f4ef;
   --placeholder: #e3e7e0;
   --placeholder-line: #a7b0a9;
@@ -103,10 +103,12 @@ section[id] { scroll-margin-top: 72px; }
 /* Motion */
 @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 
-/* Scroll-driven fade-in. Progressive enhancement: unsupported browsers just show the content. */
+/* Scroll-driven slide-in. Movement only, no fade, so text is never low-contrast while on screen.
+   Progressive enhancement: unsupported browsers just show the content. */
+@keyframes slide-in { from { transform: translateY(24px); } to { transform: none; } }
 @supports (animation-timeline: view()) {
   .reveal {
-    animation: rise linear both;
+    animation: slide-in linear both;
     animation-timeline: view();
     animation-range: entry 0% entry 25%;
   }

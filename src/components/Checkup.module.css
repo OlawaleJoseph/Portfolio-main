@@ -1,0 +1,17 @@
+.teaser { display: flex; flex-wrap: wrap; gap: 48px 64px; align-items: flex-start; }
+.intro { flex: 999 1 520px; min-width: 0; }
+.lede { max-width: 600px; margin-block: 20px 32px; font-size: 18px; color: var(--body); }
+
+.checks {
+  flex: 1 1 340px; min-width: 0; padding: 28px;
+  border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line);
+}
+.checksTitle {
+  margin-bottom: 8px;
+  font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted);
+}
+
+.list li { display: flex; gap: 16px; padding-block: 14px; border-bottom: 1px solid var(--line); }
+.list li:last-child { border-bottom: 0; }
+.num { flex-shrink: 0; font-family: var(--mono); font-size: 14px; line-height: 1.7; color: var(--accent-text); }
